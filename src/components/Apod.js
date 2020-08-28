@@ -5,9 +5,10 @@ import Explanation from './Explanation'
 import GetNew from './GetNew';
 
 const Apod = () => {
+    let dateToGet = new Date();
+    dateToGet.setDate(new Date().getDate() - 1);
     const [astroPhoto, setAstroPhoto] = useState({});
-    const [date, setDate] = useState(new Date().toISOString().split('T')[0]); // useState("2020-08-24");
-    const [dateInput, setDateInput] = useState('');
+    const [date, setDate] = useState(dateToGet.toISOString().split('T')[0]); // useState("2020-08-24");
 
     useEffect(() => {
         axios.get('https://api.nasa.gov/planetary/apod', {
@@ -23,10 +24,10 @@ const Apod = () => {
 
     return (
         <div>
-            <img src={astroPhoto.hdurl} alt={astroPhoto.title} />
+            <img className="astro-photo" src={astroPhoto.hdurl} alt={astroPhoto.title} />
             <Credit title={astroPhoto.title} copyright={astroPhoto.copyright} />
             <Explanation explanation={astroPhoto.explanation} />
-            <GetNew dateInput={dateInput} setDateInput={setDateInput} setDate={setDate} />
+            <GetNew setDate={setDate} />
         </div>
     );
 };
