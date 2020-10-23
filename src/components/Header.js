@@ -9,9 +9,8 @@ const HeaderContainer = styled.header`
 `;
 
 const PageTitle = styled.h1`
-    color: whitesmoke;
     font-family: 'cairo';
-    font-size: 35px;
+    font-size: 2rem;
     margin: 0px;
 `;
 

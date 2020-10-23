@@ -2,6 +2,16 @@ import React, {useEffect} from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
 
+const APOD = styled.img`
+    max-height: calc(100vh - 80px);
+    max-width: 100%;
+    object-fit: cover;
+`;
+
+const PhotoContainer = styled.div`
+    width: 100%;
+`;
+
 const Photo = ({photo, setPhoto, date}) => {
     const fetchPhoto = () => {
         let params = {date: date, hd: true, api_key: '6HKVSa7ydWRZVHUBbq0saxvbg0X1VfebWwhcM2bH'};
@@ -19,9 +29,9 @@ const Photo = ({photo, setPhoto, date}) => {
     useEffect(fetchPhoto, [date]);
     
     return (
-        <div className="photo">
-            <img src={photo.hdurl} alt={photo.title} />
-        </div>
+        <PhotoContainer className="photo">
+            <APOD src={photo.hdurl} alt={photo.title} />
+        </PhotoContainer>
     );
 };
 

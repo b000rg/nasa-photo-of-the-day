@@ -16,7 +16,7 @@ function App() {
   const [date, setDate] = useState(getDateString());
 
   return (
-    <div className="App">
+    <div className="App" style={{position: 'relative', 'min-height': '100vh'}}>
       <Header date={date} setDate={setDate} />
       <Photo photo={photo} setPhoto={setPhoto} date={date} />
       <BottomText photo={photo} />
