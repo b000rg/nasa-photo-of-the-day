@@ -8,7 +8,7 @@ import Footer from './components/Footer';
 function App() {
   const getDateString = () => {
     let dateObj = new Date();
-    let dateString = `${dateObj.getFullYear()}-${(dateObj.getMonth() > 8) ? dateObj.getMonth() + 1 : `0${dateObj.getMonth() + 1}`}-${(dateObj.getDate() > 8) ? dateObj.getDate() : `0${dateObj.getDay()}`}`;
+    let dateString = `${dateObj.getFullYear()}-${(dateObj.getMonth() > 8) ? dateObj.getMonth() + 1 : `0${dateObj.getMonth() + 1}`}-${(dateObj.getDate() > 8) ? dateObj.getDate() : `0${dateObj.getDate()}`}`;
     return dateString;
   };
 
